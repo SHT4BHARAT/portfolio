@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, Mail, Cpu, Code, Briefcase, ExternalLink, Menu, X, Terminal, Sparkles, Database, Layers, MapPin, Phone, GraduationCap, Calendar, Sun, Moon, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, Cpu, Code, Briefcase, ExternalLink, Menu, X, Terminal, Sparkles, Database, Layers, MapPin, GraduationCap, Calendar, Sun, Moon, Award } from 'lucide-react';
 import './index.css';
 
 /**
@@ -17,7 +17,6 @@ const portfolioData = {
 
   contact: {
     email: "sht4bharat@gmail.com",
-    phone: "+91 7509410237",
     location: "Bhopal, Madhya Pradesh, India"
   },
 
@@ -775,10 +774,6 @@ const App = () => {
           <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', padding: '16px 32px', borderRadius: '20px', background: 'var(--bg-card)', border: '1px solid var(--glass-border)' }}>
             <Mail size={24} style={{ color: 'var(--accent-primary)' }} />
             <span style={{ fontWeight: 800 }}>{portfolioData.contact.email}</span>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', padding: '16px 32px', borderRadius: '20px', background: 'var(--bg-card)', border: '1px solid var(--glass-border)' }}>
-            <Phone size={24} style={{ color: 'var(--accent-primary)' }} />
-            <span style={{ fontWeight: 800 }}>{portfolioData.contact.phone}</span>
           </motion.div>
         </div>
 
