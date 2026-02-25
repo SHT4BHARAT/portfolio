@@ -11,9 +11,9 @@ const portfolioData = {
   surname: " TIWARI",
   tagline: "Result driven Pre Final-year B.Tech student exploring the Digital Edge.",
   heroHighlight: "Digital Edge.",
-  heroText: "Pre-final year B.Tech CSIT student at Sagar Institute of Research & Technology with 6 months of hands-on Android development experience. Passionate about building AI-powered mobile and web applications that bridge cutting-edge machine learning with practical business solutions.",
+  heroText: "Android and Full Stack Developer. Pre-final year B.Tech student at SIRT Bhopal. I build AI-powered mobile and web applications using modern technologies like React, Python, and Google Gemini to solve real-world problems.",
   isOpenForInternships: true,
-  aboutText: "Result driven Pre Final-year B.Tech Computer Science & Information Technology student with strong problem-solving skills and a passion for Science & Technology. Eager to apply my knowledge in real-world projects and contribute to a dynamic organization. Seeking an internship in the Science & Technology domain to gain hands-on experience and grow professionally.",
+  aboutText: "I am a results-driven B.Tech student specializing in Computer Science and Information Technology. My focus is on developing high-performance Android apps and full-stack web solutions. I enjoy bridging the gap between machine learning research and practical business applications. Currently, I am seeking opportunities to apply my skills in AI, system design, and mobile development through challenging internships.",
 
   contact: {
     email: "sht4bharat@gmail.com",
@@ -395,9 +395,11 @@ const Navbar = ({ theme, toggleTheme }) => {
 const LeadershipSection = () => (
   <section id="leadership" className="section-wrapper">
     <h2 className="text-gradient" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '80px' }}>Leadership.</h2>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '32px' }}>
+    <div className="horizontal-scroll-wrapper">
       {portfolioData.leadership.map((item, i) => (
-        <ProjectExpansionCard key={i} item={item} icon={Sparkles} />
+        <div key={i} className="scroll-card">
+          <ProjectExpansionCard item={item} icon={Sparkles} />
+        </div>
       ))}
     </div>
   </section>
@@ -406,9 +408,11 @@ const LeadershipSection = () => (
 const VolunteerSection = () => (
   <section id="volunteer" className="section-wrapper">
     <h2 className="text-gradient" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '80px' }}>Volunteer.</h2>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '32px' }}>
+    <div className="horizontal-scroll-wrapper">
       {portfolioData.volunteer.map((item, i) => (
-        <ProjectExpansionCard key={i} item={item} icon={Code} />
+        <div key={i} className="scroll-card">
+          <ProjectExpansionCard item={item} icon={Code} />
+        </div>
       ))}
     </div>
   </section>
@@ -417,41 +421,43 @@ const VolunteerSection = () => (
 const CertificationSection = () => (
   <section id="certifications" className="section-wrapper">
     <h2 className="text-gradient" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '80px' }}>Certifications.</h2>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '32px' }}>
+    <div className="horizontal-scroll-wrapper">
       {portfolioData.certifications.map((cert, i) => (
-        <motion.div
-          key={i}
-          whileHover={{ scale: 1.03, y: -5 }}
-          className="glass-card"
-          style={{ padding: '48px', height: '100%', display: 'flex', flexDirection: 'column' }}
-        >
-          <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
-            <Award size={24} style={{ color: 'var(--accent-primary)' }} />
-          </div>
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>{cert.title}</h3>
-          <p style={{ color: 'var(--accent-primary)', fontWeight: 800, marginBottom: '8px' }}>{cert.issuer}</p>
-          <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '24px', fontWeight: 600 }}>{cert.platform}</p>
-
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 40px 0', flexGrow: 1 }}>
-            {cert.points.map((point, i) => (
-              <li key={i} style={{ color: 'var(--text-dim)', position: 'relative', paddingLeft: '24px', marginBottom: '12px', fontSize: '1rem', lineHeight: 1.6 }}>
-                <span style={{ position: 'absolute', left: 0, color: 'var(--accent-primary)', fontWeight: 900 }}>▹</span>
-                {point}
-              </li>
-            ))}
-          </ul>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid var(--glass-border)', paddingTop: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-dim)', fontSize: '0.9rem', fontWeight: 700 }}>
-              <Calendar size={18} />
-              <span>{cert.duration}</span>
+        <div key={i} className="scroll-card">
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.03, y: -5 }}
+            className="glass-card"
+            style={{ padding: '48px', height: '100%', display: 'flex', flexDirection: 'column' }}
+          >
+            <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
+              <Award size={24} style={{ color: 'var(--accent-primary)' }} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-dim)', fontSize: '0.8rem', fontWeight: 600, opacity: 0.8 }}>
-              <span style={{ color: 'var(--accent-primary)' }}>Roll No:</span>
-              <span>{cert.id}</span>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>{cert.title}</h3>
+            <p style={{ color: 'var(--accent-primary)', fontWeight: 800, marginBottom: '8px' }}>{cert.issuer}</p>
+            <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '24px', fontWeight: 600 }}>{cert.platform}</p>
+
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 40px 0', flexGrow: 1 }}>
+              {cert.points.map((point, i) => (
+                <li key={i} style={{ color: 'var(--text-dim)', position: 'relative', paddingLeft: '24px', marginBottom: '12px', fontSize: '1rem', lineHeight: 1.6 }}>
+                  <span style={{ position: 'absolute', left: 0, color: 'var(--accent-primary)', fontWeight: 900 }}>▹</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid var(--glass-border)', paddingTop: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-dim)', fontSize: '0.9rem', fontWeight: 700 }}>
+                <Calendar size={18} />
+                <span>{cert.duration}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-dim)', fontSize: '0.8rem', fontWeight: 600, opacity: 0.8 }}>
+                <span style={{ color: 'var(--accent-primary)' }}>Roll No:</span>
+                <span>{cert.id}</span>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       ))}
     </div>
   </section>
@@ -496,7 +502,7 @@ const Hero = () => (
         <div className="profile-image-glow" />
         <div className="profile-photo-inner">
           {portfolioData.profileImage ? (
-            <img src={portfolioData.profileImage} alt={portfolioData.name} />
+            <img src={portfolioData.profileImage} alt={portfolioData.name} loading="lazy" />
           ) : (
             <div style={{ color: 'var(--accent-primary)', opacity: 0.5 }}>
               <Terminal size={80} />
@@ -640,9 +646,11 @@ const ProjectCard = ({ project }) => {
 const ProjectSection = () => (
   <section id="projects" className="section-wrapper">
     <h2 className="text-gradient" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '80px' }}>Projects.</h2>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '32px', alignItems: 'start' }}>
+    <div className="horizontal-scroll-wrapper">
       {portfolioData.projects.map((p, i) => (
-        <ProjectCard key={i} project={p} />
+        <div key={i} className="scroll-card">
+          <ProjectCard project={p} />
+        </div>
       ))}
     </div>
   </section>
@@ -651,28 +659,30 @@ const ProjectSection = () => (
 const ExperienceSection = () => (
   <section id="experience" className="section-wrapper">
     <h2 className="text-gradient" style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '80px' }}>Experience.</h2>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+    <div className="horizontal-scroll-wrapper">
       {portfolioData.experience.map((exp, i) => (
-        <div key={i} className="glass-card" style={{ padding: '48px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
-            <div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '8px' }}>{exp.role}</h3>
-              <p style={{ color: 'var(--accent-primary)', fontWeight: 800, fontSize: '1.2rem' }}>{exp.company}</p>
-              <p style={{ color: 'var(--text-dim)', fontWeight: 600 }}>{exp.location}</p>
+        <div key={i} className="scroll-card">
+          <div className="glass-card" style={{ padding: '48px', height: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 900, marginBottom: '8px' }}>{exp.role}</h3>
+                <p style={{ color: 'var(--accent-primary)', fontWeight: 800, fontSize: '1.2rem' }}>{exp.company}</p>
+                <p style={{ color: 'var(--text-dim)', fontWeight: 600 }}>{exp.location}</p>
+              </div>
+              <div className="glass-card flex-center" style={{ padding: '12px 24px', gap: '10px', color: 'var(--text-dim)', background: 'transparent', flexShrink: 0 }}>
+                <Calendar size={20} />
+                <span style={{ fontWeight: 700 }}>{exp.duration}</span>
+              </div>
             </div>
-            <div className="glass-card flex-center" style={{ padding: '12px 24px', gap: '10px', color: 'var(--text-dim)', background: 'transparent' }}>
-              <Calendar size={20} />
-              <span style={{ fontWeight: 700 }}>{exp.duration}</span>
-            </div>
+            <ul style={{ marginTop: '32px', listStyle: 'none' }}>
+              {exp.points.map((point, j) => (
+                <li key={j} style={{ color: 'var(--text-dim)', position: 'relative', paddingLeft: '32px', marginBottom: '16px', fontSize: '1.1rem' }}>
+                  <span style={{ position: 'absolute', left: 0, color: 'var(--accent-primary)', fontWeight: 900 }}>→</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul style={{ marginTop: '32px', listStyle: 'none' }}>
-            {exp.points.map((point, j) => (
-              <li key={j} style={{ color: 'var(--text-dim)', position: 'relative', paddingLeft: '32px', marginBottom: '16px', fontSize: '1.1rem' }}>
-                <span style={{ position: 'absolute', left: 0, color: 'var(--accent-primary)', fontWeight: 900 }}>→</span>
-                {point}
-              </li>
-            ))}
-          </ul>
         </div>
       ))}
     </div>

@@ -271,6 +271,7 @@ body {
     opacity: 0.5;
   }
 }
+
 /* Project Expansion Styles */
 .project-card-expanded {
   z-index: 20;
@@ -334,3 +335,33 @@ body {
   box-shadow: 0 8px 25px rgba(255, 106, 0, 0.3);
 }
 
+
+/* Horizontal Scroll Utilities */
+.horizontal-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 32px;
+  padding: 20px 4px 60px 4px;
+  margin: 0 -4px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.horizontal-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.scroll-card {
+  flex: 0 0 450px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .scroll-card {
+    flex: 0 0 85vw;
+  }
+}
