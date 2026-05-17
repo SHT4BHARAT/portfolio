@@ -1,0 +1,18 @@
+---
+import { portfolioData } from '../data/portfolioData';
+---
+
+<section id="whatido" class="section-wrapper">
+  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
+    What I Do For Startups.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    {portfolioData.specializations.map((spec) => (
+      <div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; gap: 16px;">
+        <h3 style="font-size: 1.4rem; font-weight: 800;">{spec.title}</h3>
+        <p style="color: var(--text-dim); line-height: 1.6;">{spec.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

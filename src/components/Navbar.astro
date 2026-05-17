@@ -1,0 +1,67 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+const navItems = ['About', 'What I Do', 'Experience', 'Projects', 'Awards', 'Skills', 'Certifications', 'Contact'];
+---
+
+<nav class="nav-container" id="navbar">
+  <style>
+    .nav-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      transition: var(--transition-smooth);
+    }
+    .nav-container.scrolled {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: var(--transition-smooth);
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-primary);
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+
+  <div class="nav-content">
+    <a href="#hero" class="logo text-gradient">{portfolioData.name}<span style="color: var(--text-main)">{portfolioData.surname}</span></a>
+
+    <div class="nav-links">
+      {navItems.map((item) => {
+        const href = `#${item.toLowerCase().replaceAll(' ', '')}`;
+        return <a href={href} class="nav-link">{item}</a>;
+      })}
+    </div>
+  </div>
+</nav>

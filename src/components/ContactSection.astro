@@ -1,0 +1,59 @@
+---
+import { portfolioData } from '../data/portfolioData';
+---
+
+<footer id="contact" class="section-wrapper" style="text-align: center; margin-top: 80px; padding-bottom: 120px;">
+  <h2 style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 32px;">
+    Ready to build something <span class="text-gradient">epic?</span>
+  </h2>
+  <p style="color: var(--text-dim); margin-bottom: 60px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+  </p>
+
+  <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 80px; flex-wrap: wrap;">
+    <a
+      href={portfolioData.socials.email}
+      style="display: flex; align-items: center; gap: 16px; color: var(--text-main); padding: 20px 40px; border-radius: 24px; background: var(--bg-card); border: 2px solid var(--accent-primary); text-decoration: none; box-shadow: 0 10px 40px rgba(var(--accent-primary-rgb), 0.2);"
+    >
+      <span style="font-weight: 800; font-size: 1.1rem;">{portfolioData.contact.email}</span>
+    </a>
+    <a
+      href={`tel:${portfolioData.contact.phone.replace(/\s/g, '')}`}
+      style="display: flex; align-items: center; gap: 16px; color: var(--text-main); padding: 20px 40px; border-radius: 24px; background: var(--bg-card); border: 2px solid var(--glass-border); text-decoration: none;"
+    >
+      <span style="font-weight: 800; font-size: 1.1rem;">{portfolioData.contact.phone}</span>
+    </a>
+  </div>
+
+  <div style="display: flex; justify-content: center; gap: 48px; margin-bottom: 80px;">
+    <a
+      href={portfolioData.socials.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub profile"
+      style="color: var(--text-dim); transition: all 0.3s ease;"
+    >
+      <span style="font-size: 1.5rem; font-weight: 800;">GitHub</span>
+    </a>
+    <a
+      href={portfolioData.socials.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile"
+      style="color: var(--text-dim); transition: all 0.3s ease;"
+    >
+      <span style="font-size: 1.5rem; font-weight: 800;">LinkedIn</span>
+    </a>
+    <a
+      href={portfolioData.socials.email}
+      aria-label="Send email"
+      style="color: var(--text-dim); transition: all 0.3s ease;"
+    >
+      <span style="font-size: 1.5rem; font-weight: 800;">Email</span>
+    </a>
+  </div>
+
+  <p style="font-size: 0.9rem; opacity: 0.5; letter-spacing: 4px; font-weight: 800;">
+    © 2026 {portfolioData.name.toUpperCase()}{portfolioData.surname.toUpperCase()} • FORWARD DEPLOYED ENGINEER
+  </p>
+</footer>

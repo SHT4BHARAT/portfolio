@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import AboutSection from '../components/AboutSection.astro';
+import WhatIDoSection from '../components/WhatIDoSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import ProjectSection from '../components/ProjectSection.astro';
+import AwardsSection from '../components/AwardsSection.astro';
+import CertificationsSection from '../components/CertificationsSection.astro';
+import SkillsSection from '../components/SkillsSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import Hero3D from '../components/Hero3D';
+import ScrollProgress from '../components/ScrollProgress';
+import ParticleBackground from '../components/ParticleBackground';
+import BackToTop from '../components/BackToTop';
+import FloatingCTA from '../components/FloatingCTA';
+import BentoGrid from '../components/BentoGrid';
+---
+
+<Layout title="Shivanshu Tiwari | Forward Deployed Engineer & AI-Native Builder">
+  <ScrollProgress client:load />
+  <div class="bg-aurora" />
+  <div class="bg-grid-overlay" />
+  <ParticleBackground client:only="react" />
+
+  <Navbar />
+  
+  <main id="main-content">
+    <Hero3D client:load />
+    
+    <SectionDivider />
+    <AboutSection />
+    <BentoGrid client:visible />
+    
+    <SectionDivider />
+    <WhatIDoSection />
+    
+    <SectionDivider />
+    <ExperienceSection />
+    
+    <SectionDivider />
+    <ProjectSection />
+    
+    <SectionDivider />
+    <AwardsSection />
+    
+    <SectionDivider />
+    <CertificationsSection />
+    
+    <SectionDivider />
+    <SkillsSection />
+    
+    <SectionDivider />
+    <ContactSection />
+  </main>
+
+  <BackToTop client:visible />
+  <FloatingCTA client:visible />
+</Layout>

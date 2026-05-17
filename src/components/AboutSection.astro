@@ -1,0 +1,40 @@
+---
+import { portfolioData } from '../data/portfolioData';
+---
+
+<section id="about" class="section-wrapper">
+  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 48px;">
+    About Me.
+  </h2>
+  
+  <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dim); max-width: 800px; margin-bottom: 60px;">
+    {portfolioData.aboutText}
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+    {portfolioData.education.map((edu) => (
+      <div class="glass-card" style="padding: 40px;">
+        <h4 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 12px;">{edu.degree}</h4>
+        <p style="color: var(--text-dim); font-size: 1.1rem; font-weight: 600;">{edu.institution}</p>
+        <div style="margin-top: 24px; display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--accent-primary); font-weight: 800;">
+          <span>{edu.duration}</span>
+          <span>{edu.grade}</span>
+        </div>
+        {edu.coursework && (
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+            <p style="font-size: 0.85rem; font-weight: 800; color: var(--text-dim); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">Coursework</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              {edu.coursework.map((course) => (
+                <span style="padding: 4px 12px; border-radius: 8px; background: rgba(var(--accent-primary-rgb), 0.1); color: var(--accent-primary); font-size: 0.85rem; font-weight: 700;">{course}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    ))}
+    
+    <div class="glass-card" style="padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;">
+      <p style="text-align: center; font-weight: 800; font-size: 1.2rem;">{portfolioData.contact.location}</p>
+    </div>
+  </div>
+</section>
