@@ -2,16 +2,20 @@
 import { portfolioData } from '../data/portfolioData';
 ---
 
-<section id="experience" class="section-wrapper">
-  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
+<section id="experience" class="section-wrapper" aria-labelledby="experience-heading">
+  <h2 id="experience-heading" class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
     Experience.
   </h2>
 
   {portfolioData.experience.map((exp) => (
-    <div class="glass-card" style="padding: 48px;">
-      <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px;">{exp.role}</h3>
-      <p style="color: var(--accent-primary); font-weight: 800; margin-bottom: 8px;">{exp.company}</p>
-      <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 24px; font-weight: 600;">{exp.location} | {exp.duration}</p>
+    <article class="glass-card" style="padding: 48px;">
+      <header>
+        <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px;">{exp.role}</h3>
+        <p style="color: var(--accent-primary); font-weight: 800; margin-bottom: 8px;">{exp.company}</p>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 24px; font-weight: 600;">
+          <span>{exp.location}</span> | <time dateTime={exp.duration}>{exp.duration}</time>
+        </p>
+      </header>
 
       <ul style="list-style: none; padding: 0; margin: 0 0 40px 0;">
         {exp.points.map((point, i) => (
@@ -21,6 +25,6 @@ import { portfolioData } from '../data/portfolioData';
           </li>
         ))}
       </ul>
-    </div>
+    </article>
   ))}
 </section>

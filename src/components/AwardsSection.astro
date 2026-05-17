@@ -2,19 +2,23 @@
 import { portfolioData } from '../data/portfolioData';
 ---
 
-<section id="awards" class="section-wrapper">
-  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
+<section id="awards" class="section-wrapper" aria-labelledby="awards-heading">
+  <h2 id="awards-heading" class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
     Awards & Recognitions.
   </h2>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
     {portfolioData.awards.map((award) => (
-      <div class="glass-card" style="padding: 40px;">
-        <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">{award.title}</h3>
-        <p style="color: var(--accent-primary); font-weight: 800; margin-bottom: 8px;">{award.issuer}</p>
-        <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px; font-weight: 600;">{award.duration}</p>
+      <article class="glass-card" style="padding: 40px;">
+        <header>
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">{award.title}</h3>
+          <p style="color: var(--accent-primary); font-weight: 800; margin-bottom: 8px;">{award.issuer}</p>
+          <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px; font-weight: 600;">
+            <time dateTime={award.duration}>{award.duration}</time>
+          </p>
+        </header>
         <p style="color: var(--text-dim); line-height: 1.6;">{award.description}</p>
-      </div>
+      </article>
     ))}
   </div>
 </section>

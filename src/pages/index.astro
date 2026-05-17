@@ -9,6 +9,9 @@ import AwardsSection from '../components/AwardsSection.astro';
 import CertificationsSection from '../components/CertificationsSection.astro';
 import SkillsSection from '../components/SkillsSection.astro';
 import ContactSection from '../components/ContactSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import MetricsSection from '../components/MetricsSection.astro';
+import BuiltIn48Section from '../components/BuiltIn48Section.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import Hero3D from '../components/Hero3D';
 import ScrollProgress from '../components/ScrollProgress';
@@ -30,6 +33,9 @@ import BentoGrid from '../components/BentoGrid';
     <Hero3D client:load />
     
     <SectionDivider />
+    <MetricsSection />
+    
+    <SectionDivider />
     <AboutSection />
     <BentoGrid client:visible />
     
@@ -38,6 +44,9 @@ import BentoGrid from '../components/BentoGrid';
     
     <SectionDivider />
     <ExperienceSection />
+    
+    <SectionDivider />
+    <BuiltIn48Section />
     
     <SectionDivider />
     <ProjectSection />
@@ -50,6 +59,9 @@ import BentoGrid from '../components/BentoGrid';
     
     <SectionDivider />
     <SkillsSection />
+    
+    <SectionDivider />
+    <FAQSection />
     
     <SectionDivider />
     <ContactSection />
