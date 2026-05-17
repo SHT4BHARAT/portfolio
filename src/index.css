@@ -5,8 +5,11 @@
   --bg-deep: #fffaf5;
   --bg-card: rgba(255, 255, 255, 0.7);
   --accent-primary: #ff6a00;
+  --accent-primary-rgb: 255, 106, 0;
   --accent-secondary: #ff9d00;
+  --accent-secondary-rgb: 255, 157, 0;
   --accent-tertiary: #ff4d00;
+  --accent-tertiary-rgb: 255, 77, 0;
   --text-main: #2d1a0a;
   --text-dim: #6b5a4a;
   --glass-border: rgba(255, 106, 0, 0.15);
@@ -23,8 +26,11 @@
   --bg-deep: #030014;
   --bg-card: rgba(10, 10, 30, 0.5);
   --accent-primary: #7000ff;
+  --accent-primary-rgb: 112, 0, 255;
   --accent-secondary: #00d2ff;
+  --accent-secondary-rgb: 0, 210, 255;
   --accent-tertiary: #ff00c8;
+  --accent-tertiary-rgb: 255, 0, 200;
   --text-main: #f8fafc;
   --text-dim: #94a3b8;
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -293,7 +299,7 @@ body {
 }
 
 .project-details-item::before {
-  content: '';
+  content: '▹';
   position: absolute;
   left: 0;
   color: var(--accent-primary);
@@ -325,7 +331,7 @@ body {
 }
 
 .action-btn-secondary {
-  background: rgba(var(--accent-primary), 0.1);
+  background: rgba(var(--accent-primary-rgb), 0.1);
   color: var(--accent-primary);
   border: 1px solid var(--glass-border);
 }

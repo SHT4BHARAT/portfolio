@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useInView } from 'framer-motion';
-import { Github, Linkedin, Mail, Cpu, Code, Briefcase, ExternalLink, Menu, X, Terminal, Sparkles, Database, Layers, MapPin, GraduationCap, Calendar, Sun, Moon, Award, Rocket, Zap, Target, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Cpu, Code, ExternalLink, Menu, X, Terminal, Sparkles, Database, Layers, MapPin, GraduationCap, Calendar, Sun, Moon, Award, Rocket, Zap, ArrowUp } from 'lucide-react';
 import './index.css';
 
 /**
@@ -78,7 +78,7 @@ const portfolioData = {
       name: 'Samvad — Voice AI Meeting Agent',
       tech: 'Python • FastAPI • Gemini • Sarvam AI • WebSocket • Redis',
       link: 'https://github.com/SHT4BHARAT',
-      deployed: '#',
+      deployed: null,
       desc: 'Real-time voice AI agent that transcribes meetings, detects voice commands, and auto-generates intelligence reports.',
       details: [
         'Built a real-time voice AI agent with end-to-end production deployment.',
@@ -104,7 +104,7 @@ const portfolioData = {
       name: 'Call Center Compliance API',
       tech: 'Python • FastAPI • Sarvam AI STT • Vercel',
       link: 'https://github.com/SHT4BHARAT',
-      deployed: '#',
+      deployed: null,
       desc: 'End-to-end automation pipeline for call center audits: Audio Ingestion → STT → LLM Validation → Analytics.',
       details: [
         'Built end-to-end pipeline: Audio Ingestion → STT Transcription → LLM SOP Validation → Analytics.',
@@ -117,7 +117,7 @@ const portfolioData = {
       name: 'EchoPay — Offline P2P Payment',
       tech: 'Kotlin • Node.js • Express • MFSK Audio • HMAC-SHA256',
       link: 'https://github.com/SHT4BHARAT',
-      deployed: '#',
+      deployed: null,
       desc: 'Audio-powered offline P2P payment system using high-frequency sound. Hackathon runner-up.',
       details: [
         'Shipped production Android app using custom Kotlin MFSK engine for audio-based data transfer (18-22kHz).',
@@ -130,7 +130,7 @@ const portfolioData = {
       name: 'Multilingual Mandi',
       tech: 'Node.js • Express • PostgreSQL • Redis • WebSocket • React',
       link: 'https://github.com/SHT4BHARAT/multilingual-mandi',
-      deployed: 'https://mandi-app.com',
+      deployed: null,
       desc: 'Full-stack agricultural trading platform with real-time multilingual negotiation and ML price recommendations.',
       details: [
         'Built complete full-stack marketplace with product design, backend API, and normalized database schema.',
@@ -143,7 +143,7 @@ const portfolioData = {
       name: 'AI Email Categorization Agent',
       tech: 'Python • Gemini API • Gmail API • OAuth2',
       link: 'https://github.com/SHT4BHARAT',
-      deployed: '#',
+      deployed: null,
       desc: 'Local-first inbox automation agent that semantically classifies and labels emails using Gemini AI.',
       details: [
         'Built automated local-first Gmail workflow with OAuth2 and Gemini AI semantic classification.',
@@ -151,13 +151,26 @@ const portfolioData = {
         'Reduced redundant API calls, lowering long-term API costs by 60%+.',
         'Eliminated manual email sorting entirely through agentic automation.'
       ]
+    },
+    {
+      name: 'OpenENV Cloud Security Audit Environment',
+      tech: 'Docker • GitHub Actions CI/CD • Bash • Hugging Face Spaces',
+      link: 'https://github.com/SHT4BHARAT',
+      deployed: null,
+      desc: 'Cloud Infrastructure Security Audit and Remediation environment with full DevOps pipeline.',
+      details: [
+        'Architected and deployed a Cloud Infrastructure Security Audit and Remediation environment.',
+        'Demonstrated full DevOps ownership from design to production deployment.',
+        'Deployed dynamically on Hugging Face Spaces with robust automated CI/CD pipelines via GitHub Actions.',
+        'Built automated security scanning and remediation workflows using Docker and Bash.'
+      ]
     }
   ],
 
   skills: {
-    aiAgentOrchestration: ['LangChain', 'LangGraph', 'CrewAI', 'Prompt Engineering', 'Agentic Loop Design', 'OpenAI API', 'Gemini API', 'LlamaIndex'],
-    backendSystems: ['Python', 'JavaScript', 'TypeScript', 'Kotlin', 'C++', 'SQL', 'FastAPI', 'Node.js', 'Express.js', 'Next.js', 'React'],
-    infrastructure: ['Docker', 'AWS/GCP', 'Vercel', 'Railway', 'GitHub Actions', 'PostgreSQL', 'Redis', 'SQLite'],
+    aiAgentOrchestration: ['LangChain', 'LangGraph', 'CrewAI', 'Prompt Engineering', 'Agentic Loop Design', 'OpenAI API', 'Gemini API', 'LlamaIndex', 'Sarvam AI'],
+    backendSystems: ['Python', 'JavaScript', 'TypeScript', 'Kotlin', 'C++', 'SQL', 'HTML/CSS', 'FastAPI', 'Node.js', 'Express.js', 'Next.js', 'React'],
+    infrastructure: ['Docker', 'AWS/GCP', 'Vercel', 'Railway', 'Hugging Face Spaces', 'GitHub Actions', 'PostgreSQL', 'Redis', 'SQLite'],
     solutionsEngineering: ['Rapid PoC Development', 'Technical Consulting', 'Stakeholder Management', 'Agile/Scrum', 'API Integration', 'System Design']
   },
 
@@ -329,6 +342,10 @@ const ParticleBackground = () => {
     };
 
     const animate = () => {
+      if (document.hidden) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
         p.x += p.speedX;
@@ -338,7 +355,7 @@ const ParticleBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `var(--accent-primary)`;
+        ctx.fillStyle = '#ff6a00';
         ctx.globalAlpha = p.opacity;
         ctx.fill();
       });
@@ -353,7 +370,7 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `var(--accent-primary)`;
+            ctx.strokeStyle = '#ff6a00';
             ctx.globalAlpha = 0.05 * (1 - dist / 120);
             ctx.stroke();
           }
@@ -366,9 +383,17 @@ const ParticleBackground = () => {
     resize();
     createParticles();
     animate();
-    window.addEventListener('resize', resize);
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize();
+        createParticles();
+      }, 250);
+    });
     return () => {
       cancelAnimationFrame(animationId);
+      clearTimeout(resizeTimer);
       window.removeEventListener('resize', resize);
     };
   }, []);
@@ -376,6 +401,7 @@ const ParticleBackground = () => {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{
         position: 'fixed',
         top: 0,
@@ -394,7 +420,7 @@ const BackToTop = () => {
 
   useEffect(() => {
     const handle = () => setVisible(window.scrollY > 600);
-    window.addEventListener('scroll', handle);
+    window.addEventListener('scroll', handle, { passive: true });
     return () => window.removeEventListener('scroll', handle);
   }, []);
 
@@ -406,6 +432,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
           style={{
             position: 'fixed',
             bottom: '100px',
@@ -434,6 +461,7 @@ const BackToTop = () => {
 const FloatingCTA = () => (
   <motion.a
     href="#contact"
+    aria-label="Contact me - Let's Talk"
     initial={{ opacity: 0, x: 100 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ delay: 2 }}
@@ -489,7 +517,7 @@ const SkillProgressBar = ({ name, level, index }) => {
             height: '100%',
             borderRadius: '4px',
             background: 'var(--gradient-aurora)',
-            boxShadow: '0 0 12px rgba(var(--accent-primary), 0.3)',
+            boxShadow: '0 0 12px rgba(var(--accent-primary-rgb), 0.3)',
           }}
         />
       </div>
@@ -529,7 +557,7 @@ const TechnicalDecor = () => {
   ];
 
   return (
-    <div className="tech-decor-layer">
+    <div className="tech-decor-layer" aria-hidden="true">
       {items.map((item, i) => (
         <motion.div
           key={i}
@@ -576,7 +604,7 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -643,7 +671,7 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
           color: var(--accent-primary);
         }
         .theme-toggle-btn {
-          background: rgba(var(--accent-primary), 0.1);
+          background: rgba(var(--accent-primary-rgb), 0.1);
           border: 1px solid var(--glass-border);
           color: var(--text-main);
           padding: 8px;
@@ -675,34 +703,29 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
         <div className="logo italic text-gradient">{portfolioData.name}<span style={{ color: 'var(--text-main)' }}>{portfolioData.surname}</span></div>
 
         <div className="nav-links">
-          {navItems.map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase().replace(' ', '')}`} 
-              className={`nav-link uppercase tracking-widest ${activeSection === item.toLowerCase().replace(' ', '') ? 'active' : ''}`}
-            >
-              {item}
-            </a>
-          ))}
-          <button className="theme-toggle-btn" onClick={toggleTheme}>
+          {navItems.map((item) => {
+            const itemId = item.toLowerCase().replace(' ', '');
+            return (
+              <a 
+                key={item} 
+                href={`#${itemId}`} 
+                className={`nav-link uppercase tracking-widest ${activeSection === itemId ? 'active' : ''}`}
+                aria-current={activeSection === itemId ? 'location' : undefined}
+              >
+                {item}
+              </a>
+            );
+          })}
+          <button className="theme-toggle-btn" onClick={toggleTheme} aria-label="Toggle dark mode">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
-          <a 
-            href="/Shivanshu_Resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn-primary" 
-            style={{ padding: '8px 24px', fontSize: '0.9rem', textDecoration: 'none' }}
-          >
-            Resume
-          </a>
         </div>
 
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <button className="theme-toggle-btn mobile-toggle" onClick={toggleTheme}>
+          <button className="theme-toggle-btn mobile-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
-          <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMobileMenuOpen}>
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -787,12 +810,11 @@ const CertificationSection = () => (
       {portfolioData.certifications.map((cert, i) => (
         <div key={i} className="scroll-card">
           <motion.div
-            key={i}
             whileHover={{ scale: 1.03, y: -5 }}
             className="glass-card"
             style={{ padding: '48px', height: '100%', display: 'flex', flexDirection: 'column' }}
           >
-            <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
+            <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary-rgb), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
               <Award size={24} style={{ color: 'var(--accent-primary)' }} />
             </div>
             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>{cert.title}</h3>
@@ -837,7 +859,7 @@ const ProjectExpansionCard = ({ item, icon }) => {
     className="glass-card"
     style={{ padding: '48px', height: '100%', display: 'flex', flexDirection: 'column' }}
   >
-    <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
+    <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary-rgb), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px', flexShrink: 0 }}>
       {icon && <icon size={24} style={{ color: 'var(--accent-primary)' }} />}
     </div>
     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>{title}</h3>
@@ -883,7 +905,7 @@ const Hero3D = () => {
   ];
 
   return (
-    <section className="section-wrapper flex-center" style={{ minHeight: '100vh', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+    <section id="hero" className="section-wrapper flex-center" style={{ minHeight: '100vh', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
       {shapes.map((shape, i) => (
         <motion.div
           key={i}
@@ -926,7 +948,7 @@ const Hero3D = () => {
           <div className="profile-image-glow" />
           <div className="profile-photo-inner">
             {portfolioData.profileImage ? (
-              <img src={portfolioData.profileImage} alt={portfolioData.name} loading="lazy" />
+              <img src={portfolioData.profileImage} alt={`Portrait photo of ${portfolioData.name}${portfolioData.surname}, Forward Deployed Engineer`} loading="lazy" />
             ) : (
               <div style={{ color: 'var(--accent-primary)', opacity: 0.5 }}>
                 <Terminal size={80} />
@@ -1147,7 +1169,7 @@ const ProjectCard = ({ project }) => {
       onMouseLeave={handleMouseLeave}
       onTouchEnd={handleMouseLeave}
     >
-      <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px' }}>
+      <div className="flex-center" style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(var(--accent-primary-rgb), 0.1)', border: '1px solid var(--glass-border)', marginBottom: '32px' }}>
         <Code size={24} style={{ color: 'var(--accent-primary)' }} />
       </div>
       <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '16px' }}>{project.name}</h3>
@@ -1173,9 +1195,11 @@ const ProjectCard = ({ project }) => {
               <a href={project.link} target="_blank" rel="noopener noreferrer" className="action-btn action-btn-secondary">
                 <Github size={18} /> Repo
               </a>
-              <a href={project.deployed} target="_blank" rel="noopener noreferrer" className="action-btn action-btn-primary">
-                <ExternalLink size={18} /> Live Demo
-              </a>
+              {project.deployed && (
+                <a href={project.deployed} target="_blank" rel="noopener noreferrer" className="action-btn action-btn-primary">
+                  <ExternalLink size={18} /> Live Demo
+                </a>
+              )}
             </div>
           </motion.div>
         )}
@@ -1360,7 +1384,7 @@ const App = () => {
     );
 
     sections.forEach((id) => {
-      const element = document.getElementById(id === 'hero' ? '' : id);
+      const element = document.getElementById(id);
       if (element) observer.observe(element);
     });
 
@@ -1373,6 +1397,9 @@ const App = () => {
 
   return (
     <div className="main-container">
+      <a href="#hero" className="skip-link" style={{ position: 'absolute', left: '-9999px', zIndex: 9999, padding: '16px 32px', background: 'var(--accent-primary)', color: 'white', fontWeight: 800, textDecoration: 'none', borderRadius: '0 0 8px 0' }} onFocus={(e) => e.target.style.left = '0'} onBlur={(e) => e.target.style.left = '-9999px'}>
+        Skip to main content
+      </a>
       <ScrollProgress />
       <div className="bg-aurora" />
       <div className="bg-grid-overlay" />
@@ -1425,6 +1452,16 @@ const App = () => {
                   <span className="flex-center" style={{ gap: '8px' }}><Calendar size={16} /> {edu.duration}</span>
                   <span className="flex-center" style={{ gap: '8px' }}><Sparkles size={16} /> {edu.grade}</span>
                 </div>
+                {edu.coursework && (
+                  <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid var(--glass-border)' }}>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--text-dim)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Coursework</p>
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                      {edu.coursework.map((course, j) => (
+                        <span key={j} style={{ padding: '4px 12px', borderRadius: '8px', background: 'rgba(var(--accent-primary-rgb), 0.1)', color: 'var(--accent-primary)', fontSize: '0.85rem', fontWeight: 700 }}>{course}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             ))}
             <motion.div
@@ -1503,7 +1540,7 @@ const App = () => {
             TECH STACK
           </h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
-            {portfolioData.skills.aiAgentOrchestration.concat(portfolioData.skills.backendSystems, portfolioData.skills.infrastructure).map((skill) => (
+            {portfolioData.skills.aiAgentOrchestration.concat(portfolioData.skills.backendSystems, portfolioData.skills.infrastructure, portfolioData.skills.solutionsEngineering).map((skill) => (
               <motion.div
                 key={skill}
                 whileHover={{ scale: 1.15, backgroundColor: 'var(--accent-primary)', color: 'white', y: -5 }}
@@ -1549,10 +1586,17 @@ const App = () => {
           <motion.a
             whileHover={{ scale: 1.05, y: -5 }}
             href={portfolioData.socials.email}
-            style={{ display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', padding: '20px 40px', borderRadius: '24px', background: 'var(--bg-card)', border: '2px solid var(--accent-primary)', textDecoration: 'none', boxShadow: '0 10px 40px rgba(var(--accent-primary), 0.2)' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', padding: '20px 40px', borderRadius: '24px', background: 'var(--bg-card)', border: '2px solid var(--accent-primary)', textDecoration: 'none', boxShadow: '0 10px 40px rgba(var(--accent-primary-rgb), 0.2)' }}
           >
             <Mail size={28} style={{ color: 'var(--accent-primary)' }} />
             <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>{portfolioData.contact.email}</span>
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.05, y: -5 }}
+            href={`tel:${portfolioData.contact.phone.replace(/\s/g, '')}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', padding: '20px 40px', borderRadius: '24px', background: 'var(--bg-card)', border: '2px solid var(--glass-border)', textDecoration: 'none' }}
+          >
+            <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>{portfolioData.contact.phone}</span>
           </motion.a>
         </motion.div>
 
@@ -1569,6 +1613,7 @@ const App = () => {
             href={portfolioData.socials.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub profile"
             style={{ color: 'var(--text-dim)', transition: 'all 0.3s ease' }}
           >
             <Github size={36} />
@@ -1578,6 +1623,7 @@ const App = () => {
             href={portfolioData.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
             style={{ color: 'var(--text-dim)', transition: 'all 0.3s ease' }}
           >
             <Linkedin size={36} />
@@ -1585,6 +1631,7 @@ const App = () => {
           <motion.a
             whileHover={{ y: -10, color: 'var(--accent-primary)', scale: 1.2 }}
             href={portfolioData.socials.email}
+            aria-label="Send email"
             style={{ color: 'var(--text-dim)', transition: 'all 0.3s ease' }}
           >
             <Mail size={36} />
