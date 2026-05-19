@@ -7,9 +7,12 @@ import { portfolioData } from '../data/portfolioData';
     About Me.
   </h2>
   
-  <article style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dim); max-width: 800px; margin-bottom: 60px;">
-    <p>{portfolioData.aboutText}</p>
-  </article>
+  <div style="display: flex; gap: 48px; align-items: start; margin-bottom: 60px; flex-wrap: wrap;">
+    <article style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dim); flex: 1; min-width: 300px;">
+      <p>{portfolioData.aboutText}</p>
+    </article>
+    <img src={portfolioData.profileImage} alt="Shivanshu Tiwari" width="240" height="240" style="border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-primary); flex-shrink: 0; aspect-ratio: 1;" />
+  </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
     {portfolioData.education.map((edu) => (

@@ -1,5 +1,6 @@
 ---
 import { portfolioData } from '../data/portfolioData';
+import VisitorCounter from './VisitorCounter';
 ---
 
 <footer id="contact" class="section-wrapper" style="text-align: center; margin-top: 80px; padding-bottom: 120px;">
@@ -56,4 +57,5 @@ import { portfolioData } from '../data/portfolioData';
   <p style="font-size: 0.9rem; opacity: 0.5; letter-spacing: 4px; font-weight: 800;">
     © 2026 {portfolioData.name.toUpperCase()}{portfolioData.surname.toUpperCase()} • FORWARD DEPLOYED ENGINEER
   </p>
+  <VisitorCounter client:load />
 </footer>
