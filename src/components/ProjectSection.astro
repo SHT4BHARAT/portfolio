@@ -1,0 +1,14 @@
+---
+import { portfolioData } from '../data/portfolioData';
+import ProjectCard from './ProjectCard';
+---
+
+<section id="projects" class="section-wrapper">
+  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
+    Projects.
+  </h2>
+
+  {portfolioData.projects.map((project, i) => (
+    <ProjectCard client:visible project={project} index={i} />
+  ))}
+</section>

@@ -1,0 +1,145 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shivanshu Tiwari",
+  "jobTitle": "Forward Deployed Engineer & AI-Native Builder",
+  "url": "https://sht-portfolio.vercel.app/",
+  "telephone": "+91 7509410237",
+  "email": "sht4bharat@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bhopal",
+    "addressRegion": "Madhya Pradesh",
+    "addressCountry": "India"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Sagar Institute of Research & Technology"
+  },
+  "knowsAbout": ["Autonomous Agents", "LangChain", "LangGraph", "CrewAI", "Voice AI", "LLM Pipelines", "FastAPI", "AI Engineering", "MVP Development", "React", "Node.js", "Python", "Full Stack Development", "System Design", "Agentic Workflows", "GenAI"],
+  "sameAs": [
+    "https://github.com/SHT4BHARAT",
+    "https://linkedin.com/in/sht4bharat"
+  ]
+};
+
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Shivanshu Tiwari - Forward Deployed Engineering",
+  "description": "Forward Deployed Engineer specializing in Autonomous Agentic Workflows, Voice AI, LLM Pipelines, and rapid MVP development for startups.",
+  "url": "https://sht-portfolio.vercel.app/",
+  "telephone": "+91 7509410237",
+  "email": "sht4bharat@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bhopal",
+    "addressRegion": "Madhya Pradesh",
+    "addressCountry": "India"
+  },
+  "priceRange": "$$",
+  "serviceType": ["AI Agent Development", "Voice AI Systems", "Backend Engineering", "Rapid Prototyping", "MVP Development"],
+  "areaServed": "Global"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sht-portfolio.vercel.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "https://sht-portfolio.vercel.app/#projects"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Experience",
+      "item": "https://sht-portfolio.vercel.app/#experience"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Skills",
+      "item": "https://sht-portfolio.vercel.app/#skills"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Contact",
+      "item": "https://sht-portfolio.vercel.app/#contact"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Forward Deployed Engineer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Forward Deployed Engineer bridges the gap between product development and client needs. They architect solutions directly for real-world deployment, working closely with stakeholders to deliver production-ready systems. In my case, I specialize in Autonomous Agentic Workflows, Voice AI, and LLM Pipelines — building AI-native products that ship to production."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What projects has Shivanshu Tiwari built?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I've built 7 production-grade projects including Samvad (Voice AI Meeting Agent), Agentic Honey-Pot (autonomous scam detection), Call Center Compliance API, EchoPay (offline P2P payments), Multilingual Mandi (agricultural trading platform), AI Email Categorization Agent, and OpenENV Cloud Security Audit Environment. Most are deployed with 99%+ uptime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies does Shivanshu Tiwari specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I specialize in AI Agent Orchestration (LangChain, LangGraph, CrewAI, OpenAI API, Gemini API), Backend Systems (Python, FastAPI, Node.js, PostgreSQL, Redis), Infrastructure (Docker, AWS/GCP, Vercel, Railway), and Solutions Engineering (Rapid PoC Development, API Integration, System Design)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can Shivanshu Tiwari build an MVP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I can go from idea to production MVP in days, not weeks. For example, I built EchoPay (an offline P2P payment system using high-frequency audio) from idea to MVP in under 48 hours during the MLBhopal GenAI Hackathon, winning Runner-up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Shivanshu Tiwari's educational background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I'm pursuing a Bachelor of Technology in Computer Science & Information Technology at Sagar Institute of Research & Technology, Bhopal (2023-2027) with a GPA of 7.64/10.00. Coursework includes Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, and Operating Systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Shivanshu Tiwari located and is he open to remote work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I'm based in Bhopal, Madhya Pradesh, India. I'm fully remote-ready and open to relocation for the right opportunity."
+      }
+    }
+  ]
+};
+
+const allSchemas = [personSchema, professionalServiceSchema, breadcrumbSchema, faqSchema];
+---
+
+{allSchemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

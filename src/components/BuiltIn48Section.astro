@@ -1,0 +1,66 @@
+---
+const timeline = [
+  {
+    time: "Hour 0",
+    title: "Problem Identified",
+    desc: "Offline payments in rural India require internet. We chose audio-based data transfer."
+  },
+  {
+    time: "Hour 6",
+    title: "MFSK Engine Built",
+    desc: "Custom Kotlin MFSK engine for 18-22kHz audio data transfer. Goertzel algorithm for real-time decoding."
+  },
+  {
+    time: "Hour 18",
+    title: "Android App Shipped",
+    desc: "Production Android app with signal encoding/decoding. 70% speed optimization achieved."
+  },
+  {
+    time: "Hour 30",
+    title: "Security Layer Added",
+    desc: "HMAC-SHA256 integrity checks and UUID replay protection implemented."
+  },
+  {
+    time: "Hour 42",
+    title: "Backend & Testing",
+    desc: "Node.js/Express backend on Railway. End-to-end testing with real devices."
+  },
+  {
+    time: "Hour 48",
+    title: "Demo & Runner-up",
+    desc: "Presented at MLBhopal GenAI Hackathon. Won Runner-up. Idea to MVP in 48 hours."
+  }
+];
+---
+
+<section class="section-wrapper" aria-labelledby="built48-heading">
+  <h2 id="built48-heading" class="text-gradient" style="font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; margin-bottom: 16px;">
+    Built in 48 Hours.
+  </h2>
+  <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 48px; max-width: 600px;">
+    EchoPay — Audio-Powered Offline P2P Payment System. MLBhopal GenAI Hackathon Runner-up 2025.
+  </p>
+
+  <div style="position: relative; max-width: 800px; margin: 0 auto;">
+    <div style="position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: var(--glass-border);"></div>
+    
+    {timeline.map((item) => (
+      <div style="display: flex; gap: 32px; margin-bottom: 32px; position: relative;">
+        <div style="width: 50px; flex-shrink: 0; text-align: center;">
+          <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--accent-primary); margin: 4px auto 0;"></div>
+        </div>
+        <div class="glass-card" style="padding: 24px; flex-grow: 1;">
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px;">{item.time}</span>
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin: 8px 0;">{item.title}</h3>
+          <p style="color: var(--text-dim); line-height: 1.6;">{item.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="https://github.com/SHT4BHARAT" target="_blank" rel="noopener noreferrer" class="action-btn action-btn-secondary" style="padding: 16px 40px; font-size: 1rem; text-decoration: none;">
+      View Commit History on GitHub
+    </a>
+  </div>
+</section>

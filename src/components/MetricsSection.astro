@@ -1,0 +1,25 @@
+---
+const metrics = [
+  { value: "7", label: "Production Projects", suffix: "" },
+  { value: "3", label: "Hackathon Awards", suffix: "" },
+  { value: "99", label: "Uptime %", suffix: "%+" },
+  { value: "10", label: "Team Led", suffix: "" },
+  { value: "48", label: "Fastest MVP", suffix: "hrs" },
+  { value: "90", label: "Accuracy Improvement", suffix: "%" },
+];
+---
+
+<section class="section-wrapper" aria-label="Key metrics">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px;">
+    {metrics.map((metric) => (
+      <div class="glass-card" style="padding: 32px; text-align: center;">
+        <div style="font-size: 2.5rem; font-weight: 900; color: var(--accent-primary);">
+          {metric.value}{metric.suffix}
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.9rem; font-weight: 600; margin-top: 8px;">
+          {metric.label}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

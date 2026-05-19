@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import JsonLd from '../components/JsonLd.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Forward Deployed Engineer specializing in Autonomous Agentic Workflows, Voice AI, LLM Pipelines, and rapid MVP development." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Shivanshu Tiwari" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Shivanshu Tiwari, Forward Deployed Engineer, AI Engineer, Autonomous Agents, LangChain, LangGraph, Voice AI, LLM, FastAPI, Bhopal" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sht-portfolio.vercel.app/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Shivanshu Tiwari Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="canonical" href="https://sht-portfolio.vercel.app/" />
+    
+    <JsonLd />
+  </head>
+  <body>
+    <a href="#hero" class="skip-link" style="position: absolute; left: -9999px; z-index: 9999; padding: 16px 32px; background: var(--accent-primary); color: white; font-weight: 800; text-decoration: none; border-radius: 0 0 8px 0;" onFocus="this.style.left = '0'" onBlur="this.style.left = '-9999px'">
+      Skip to main content
+    </a>
+    <slot />
+  </body>
+</html>

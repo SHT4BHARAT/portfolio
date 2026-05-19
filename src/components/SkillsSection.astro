@@ -1,0 +1,31 @@
+---
+import { portfolioData } from '../data/portfolioData';
+---
+
+<section id="skills" class="section-wrapper">
+  <h2 class="text-gradient" style="font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; margin-bottom: 60px;">
+    Skills & Tech Stack.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px; margin-bottom: 60px;">
+    {Object.entries(portfolioData.skills).map(([category, skills]) => (
+      <div class="glass-card" style="padding: 40px;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">{category.replace(/([A-Z])/g, ' $1').trim()}</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          {skills.map((skill) => (
+            <span class="glass-card skill-badge-3d" style="padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; cursor: default;">{skill}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <h3 style="font-size: 1.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 32px; color: var(--text-main); opacity: 0.6; text-align: center;">
+    TECH STACK
+  </h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+    {portfolioData.skills.aiAgentOrchestration.concat(portfolioData.skills.backendSystems, portfolioData.skills.infrastructure, portfolioData.skills.solutionsEngineering).map((skill) => (
+      <span class="glass-card skill-badge-3d" style="padding: 10px 22px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; cursor: default;">{skill}</span>
+    ))}
+  </div>
+</section>
